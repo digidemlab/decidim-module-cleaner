@@ -9,9 +9,6 @@ module Decidim
     class Engine < ::Rails::Engine
       isolate_namespace Decidim::Cleaner
 
-      config.to_prepare do
-        Decidim::DestroyAccount.include(Decidim::Cleaner::Extends::DestroyAccount)
-      end
     end
   end
 end
