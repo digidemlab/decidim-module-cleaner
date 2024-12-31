@@ -12,17 +12,19 @@ module Decidim
 
           # Invalidate all sessions after cleaning Decidim::User record to prevent Active Record error
           def destroy_user_account!
-            @user.name = ""
-            @user.nickname = ""
-            @user.email = ""
-            @user.delete_reason = @form.delete_reason
-            @user.admin = false if @user.admin?
-            @user.deleted_at = Time.current
-            @user.skip_reconfirmation!
-            @user.avatar.purge
-            @user.save!
+            current_user.name = ""
+            current_user.nickname = ""
+            current_user.email = ""
+            current_user.personal_url = ""
+            current_user.about = ""
+            current_user.delete_reason = @form.delete_reason
+            current_user.admin = false if current_user.admin?
+            current_user.deleted_at = Time.current
+            current_user.skip_reconfirmation!
+            current_user.avatar.purge
+            current_user.save!
 
-            @user.invalidate_all_sessions!
+            current_user.invalidate_all_sessions!
           end
         end
       end
