@@ -40,7 +40,7 @@ module Decidim
           InactiveUsersMailer.warning_deletion(user).deliver_now
           Rails.logger.info "Deletion warning sent to #{user.email}"
 
-          Decidim::DestroyAccount.call(user, Decidim::DeleteAccountForm.from_params({ delete_reason: I18n.t("decidim.cleaner.delete_reason") }))
+          CustomDestroyAccount.call(user, Decidim::DeleteAccountForm.from_params({ delete_reason: I18n.t("decidim.cleaner.delete_reason") }))
           Rails.logger.info "User with id #{user.id} destroyed"
         end
       end
