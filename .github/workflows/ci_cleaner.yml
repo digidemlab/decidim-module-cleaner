@@ -6,9 +6,10 @@ env:
   CODECOV: "true"
   RUBY_VERSION: 3.2.2
   NODE_VERSION: 18.17.1
-  WEBPACKER_RUNTIME_COMPILE: "false"
+  SHAKAPACKER_RUNTIME_COMPILE: "false"
   RAILS_ENV: test
-
+  DISABLE_SPRING: "true"
+  
 jobs:
   lint:
     name: Lint code
