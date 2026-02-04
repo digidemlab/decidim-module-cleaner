@@ -2,14 +2,13 @@
 
 # :nocov:
 module Decidim
-  # This holds the decidim-meetings version.
   module Cleaner
     def self.version
-      "5.0.0"
+      "5.1.0"
     end
 
     def self.compatible_decidim_version
-      "~> 0.29.0"
+      "~> 0.30.0"
     end
   end
 end
